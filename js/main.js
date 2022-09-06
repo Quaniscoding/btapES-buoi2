@@ -9,10 +9,6 @@ let dataGlasses = [
     { id: "G8", src: "./img/g8.jpg", virtualImg: "./img/v8.png", brand: "Polo", name: "NATTY ICE", color: "Red, Black", price: 120, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, unde enim." },
     { id: "G9", src: "./img/g9.jpg", virtualImg: "./img/v9.png", brand: "Coarch", name: "MIDNIGHT VIXEN REMIX", color: "Blue, Black", price: 120, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consequatur soluta ad aut laborum amet." }
 ];
-// let glass1 = dataGlasses.find(dataGlasses => dataGlasses.id === "G1", "G2")
-// console.log(glass1.id);
-
-// console.log(glasses);
 function hienKinh() {
     let res = ``;
     dataGlasses.map(glass => {
@@ -25,22 +21,16 @@ function hienKinh() {
             document.getElementById("vglassesList").innerHTML = res;
         }
     })
-
 }
 hienKinh();
-document.getElementById("chonKinh").onclick = function chonKinh() {
-    let res = ``;
-    dataGlasses.map(glass => {
-        if (glass.id === "G1") {
-            res += `
-        <img src = ${glass.virtualImg}>
-        `
-        }
-        else if (glass.id === "G2") {
-            res += `
-            <img src = ${glass.virtualImg}>
-            `
-        }
-        document.getElementById("avatar").innerHTML = res;
-    })
+
+let glass = dataGlasses[1].virtualImg;
+console.log(glass);
+let click = document.getElementsByClassName("d-flex");
+for (let i = 0; i < click.length; i++) {
+    click[i].onclick = () => {
+        document.getElementById("avatar").innerHTML = `
+                <img src = ${dataGlasses[i].virtualImg}>
+                `;
+    }
 }
